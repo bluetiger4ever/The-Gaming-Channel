@@ -1,0 +1,108 @@
+@import '~styles/variables'
+@import '~styles-lib/mixins'
+
+$-fb-color = #4267b2
+$-twitter-color = #38A1F3
+$-google-color = #4285F4
+$-twitch-color = #6441A4
+
+-social-button($-color)
+	background-color: $-color
+	text-align: left
+	padding: 0 12px
+	margin-bottom: 8px
+	height: 40px
+	text-transform: none
+	font-size: $font-size-base
+
+	img
+		margin-right: 12px
+
+	&:hover
+		background-color: $-color !important
+
+	&
+	&:hover
+		color: white !important
+
+-social-button-block()
+	display: flex
+	align-items: center
+
+.auth-form-overlay
+	.auth-form-container
+		@media $media-sm-up
+			rounded-corners-lg()
+			background-color: rgba($black, 0.4)
+			padding: ($grid-gutter-width / 2)
+			margin-left: -($grid-gutter-width / 2)
+			margin-right: @margin-left
+
+.auth-form
+	// Much less vertical spacing.
+	.form-group
+		margin-top: 0
+		margin-bottom: 4px
+
+	.button
+		margin-top: 8px
+
+	.form-control
+		// Bigger form controls.
+		height: 40px
+
+		// Don't change the color of the border on focus.
+		&:focus
+			theme-prop('border-color', 'lighter')
+
+.auth-line-thru
+	position: relative
+	display: block
+	margin-top: $line-height-computed
+	margin-bottom: $line-height-computed
+	width: 100%
+	text-align: center
+
+	&::before
+	&::after
+		content: ''
+		position: absolute
+		top: 50%
+		margin-top: 0
+		height: 0
+		border-bottom: $border-width-base solid rgba($black, 0.2)
+
+	&::before
+		left: 0
+		right: 50%
+		margin-right: 40px
+
+	&::after
+		left: 50%
+		right: 0
+		margin-left: 40px
+
+.-fb
+	-social-button($-fb-color)
+	-social-button-block()
+	padding-left: 8px
+
+	img
+		width: 30px
+		height: 30px
+
+.-google
+	-social-button($-google-color)
+	-social-button-block()
+	padding-left: 0
+
+	img
+		margin-left: 2px
+		width: 40px
+		height: 40px
+
+.-twitter
+	-social-button($-twitter-color)
+
+.-twitch
+	-social-button($-twitch-color)
