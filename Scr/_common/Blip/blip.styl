@@ -1,0 +1,29 @@
+@require '~styles/variables'
+@require '~styles-lib/mixins'
+
+$-spacing = 8px
+
+.blip
+	color: var(--theme-fg-muted)
+	display: inline-flex
+	align-items: center
+	min-width: 36px
+	height: 36px
+	padding: 0 ($-spacing * 1.5) 0 $-spacing
+	font-weight: 700
+	font-size: $font-size-small
+
+	&-missing
+		margin-right: $-spacing
+
+	a&
+		pressy()
+
+	&.mobile
+		padding-right: $-spacing
+
+	&.blip-active
+		color: var(--theme-bi-bg)
+
+		&:hover
+			color: var(--theme-link-hover)
